@@ -1,0 +1,85 @@
+<DOCTYPE html>
+  <html>
+    <title>Entry Form</title>
+
+  <body>
+    <form id="entryForm"  action="fromDataPage.html">
+
+      <input id="name" name="name" placeholder="Name:" alt="Enter name"/>
+      <p1 id="valName"></p1>
+
+      <br/><input id="dob" name="dob" placeholder="DOB:" alt="Enter DOB"/>
+      <p1 id="valDOB"></p1>
+
+      <br/><input id="address" name="address" placeholder="Address:" alt="Enter Address"/>
+      <p1 id="valAddress"></p1>
+
+      <br/><input id="postcode" name="postcode" placeholder="Post Code:" alt="Enter Post Code "/>
+      <p1 id="valPostcode"></p1>
+
+      <br/><input id="email" name="email" placeholder="Email:" alt="Enter email"/>
+      <p1 id="valEmail"></p1>
+
+    </form>
+
+  <button id = "button" onsubmit="formSubmit()">Submit</button>
+
+    <script>
+      function formSubmit(){
+
+      var pass = true;
+
+      var nameRX = /^[A-za-z]+$/;
+      var dobRX = (/^(\d{1,2}\/\d{1,2}\/\d{4})+$/);
+      var addressRX = /^[0-9A-za-z]+$/;
+      var emailRX = /^[a-zA-Z0-9_\.]+@[a-zA-Z]+?\.[a-zA-Z\.]+$/;
+      var postcodeRX =/^[A-z0-9a-z]+$/;;
+
+      if(!(document.getElementById("name").value.match(nameRX))) {  // If the name inputted doesnt match the regex
+             document.getElementById("valName").innerHTML  = "Invalid name"; // Returns error message
+             document.getElementById("valName").focus // Return the cursor to the first empty value
+             pass = false;
+           } else {
+             document.getElementById("valName").innerHTML = ""; // Reset for the name box
+      }
+
+      if(!(document.getElementById("dob").value.match(dobRX))) {  // If the name inputted doesnt match the regex
+             document.getElementById("valDOB").innerHTML  = "Invalid DOB"; // Returns error message
+             document.getElementById("valDOB").focus // Return the cursor to the first empty value
+             pass = false;
+          } else {
+             document.getElementById("valDOB").innerHTML = ""; // Reset for the dob box
+      }
+
+      if(!(document.getElementById("address").value.match(addressRX))) {  // If the address inputted doesnt match the regex
+             document.getElementById("valAddress").innerHTML  = "Invalid Address"; // Returns error message
+             document.getElementById("valAddress").focus // Return the cursor to the first empty value
+             pass = false;
+           } else {
+             document.getElementById("valAddress").innerHTML = ""; // Reset for the address box
+      }
+
+
+      if(!(document.getElementById("postcode").value.match(postcodeRX) && value.length <=10)) {  // If the address inputted doesnt match the regex
+                   document.getElementById("valPostcode").innerHTML  = "Invalid Postcode"; // Returns error message
+                   document.getElementById("valPostcode").focus // Return the cursor to the first empty value
+                   pass = false;
+                 } else {
+                   document.getElementById("valAddress").innerHTML = ""; // Reset for the address box
+            }
+
+
+      if(!(document.getElementById("email").value.match(emailRX))) {  // If the email inputted doesnt match the regex
+               document.getElementById("valEmail").innerHTML  = "Invalid email"; //  // Returns the error message
+               document.getElementById("valEmail").focus // bascially with focus it return the cursor to the first empty value. In this case, the email.
+               pass = false;
+             } else {
+               document.getElementById("valEmail").innerHTML = ""; // bascially a reset for the email box
+        }
+
+      return pass;
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+  <head>
+  <title>Main Page</title>
+  <style>
+  {
+    position: absolute;
+    top: 50;
+    padding:0px, 15px;
+  }
+  </style>
+
+</head>
+<body>
+  <form>
+    <input id="dropdown" name="dropdown" onclick="dropdown()" placeholder="JSON Assessment"/>
+    <input id="dropdown1" name="dropdown1" onclick="dropdown1()" placeholder="Form Assessment "/>
+
+    <div id="dropDownStuff">
+      <a onmouseover="drop('JSON manipulation')">JSON manipulation</a>
+    </div>
+
+    <div id="dropDownStuff1">
+      <a onmouseover="drop1('Entry Form')">Entry Form</a>
+      <a onmouseover="drop1('Form Data')">Form Data</a>
+    </div>
+
+
+<script>
+function dropDown() {
+  if(document.getElementById("dropDownStuff").style.display == 'none'){
+    document.getElementsById("dropDownStuff").style.display = 'block';
+  } else {
+    document.getElementById("dropDownStuff").style.display = 'none';
+  }
+}
+
+function drop(str) {
+  document.getElementById("dropdown").value = str;
+  dropDown();
+}
+
+
+
+function dropDown1() {
+  if(document.getElementById("dropDownStuff1").style.display == 'none'){
+    document.getElementsById("dropDownStuff1").style.display = 'block';
+  } else {
+    document.getElementById("dropDownStuff1").style.display = 'none';
+  }
+}
+
+function drop1(str) {
+  document.getElementById("dropdown1").value = str;
+  dropDown1();
+}
+      </script>
+    </form>
+  </body>
+</html>
